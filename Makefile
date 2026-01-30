@@ -1,14 +1,17 @@
 # Horizon libc Makefile
 
-CC ?= i686-elf-gcc
-AR ?= i686-elf-ar
-RANLIB ?= i686-elf-ranlib
+CC     := i686-elf-gcc
+AR     := i686-elf-ar
+RANLIB := i686-elf-ranlib
 
 CFLAGS = \
 	-std=c89 \
 	-ffreestanding \
+	-fno-common \
 	-fno-builtin \
 	-fno-stack-protector \
+	-fno-unwind-tables \
+	-fno-asynchronous-unwind-tables \
 	-fno-pic \
 	-O2 \
 	-Wall \
