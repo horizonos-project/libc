@@ -20,6 +20,15 @@
 #define SYS_alarm       27
 #define SYS_brk         45
 
+/* filesystem / path (shell essentials) */
+#define SYS_unlink      10
+#define SYS_chdir       12
+#define SYS_access      33
+#define SYS_rename      38
+#define SYS_mkdir       39
+#define SYS_rmdir       40
+#define SYS_getcwd      183
+
 /* identity */
 #define SYS_getuid      24
 #define SYS_getgid      47
@@ -30,6 +39,12 @@
 #define SYS_dup         41
 #define SYS_pipe        42
 #define SYS_dup2        63
+#define SYS_fcntl       55
+#define SYS_ioctl       54
+
+/* Multiplexing (pick one; select is classic on i386) */
+#define SYS_select      82
+/* #define SYS_poll      168 */ /* optional alternative */
 
 /* File metadata */
 #define SYS_stat        106
@@ -52,9 +67,21 @@
 #define SYS_gettimeofday 78
 #define SYS_nanosleep    162
 
-
 /* Directories */
 #define SYS_getdents    141
+
+/* Signals (recommended modern RT set for shells) */
+#define SYS_kill           37
+#define SYS_rt_sigreturn   173
+#define SYS_rt_sigaction   174
+#define SYS_rt_sigprocmask 175
+
+/* Job control / sessions (usable shell) */
+#define SYS_setpgid     57
+#define SYS_getpgrp     65
+#define SYS_setsid      66
+#define SYS_getsid      147  /* optional but very handy */
+#define SYS_umask       60
 
 /* Horizon-specific syscalls start here */
 #define SYS_clear_vga    500
